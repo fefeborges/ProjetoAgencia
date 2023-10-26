@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ProjetoAgencia.Models;
 
 namespace ProjetoAgencia.Models
 {
@@ -8,5 +9,7 @@ namespace ProjetoAgencia.Models
         {
 
         }
+        public DbSet<Passageiros> Passageiros { get; set; }
+        public DbSet<Estadia> Estadia { get; set; }
     }
 }
