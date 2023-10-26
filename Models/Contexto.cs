@@ -14,5 +14,6 @@ namespace ProjetoAgencia.Models
         public DbSet<Atracoes> Atracoes { get; set; }
         public DbSet<Destino> Destino { get; set; }
         public DbSet<Transporte>Transporte { get; set; }
+        public DbSet<ProjetoAgencia.Models.Cadastro>? Cadastro { get; set; }
     }
 }
