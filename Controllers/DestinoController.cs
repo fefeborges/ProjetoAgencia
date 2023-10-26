@@ -19,11 +19,23 @@ namespace ProjetoAgencia.Controllers
         }
 
         // GET: Destino
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string pesquisa)
         {
-              return _context.Destino != null ? 
+            if (pesquisa == null)
+            {
+                return _context.Destino != null ?
                           View(await _context.Destino.ToListAsync()) :
                           Problem("Entity set 'Contexto.Destino'  is null.");
+            }
+            else
+            {
+                var destino =
+                    _context.Destino
+                    .Where(x => x.NomeDestino.Contains(pesquisa))
+                    .OrderBy(x => x.NomeDestino);
+
+                return View(destino);
+            }
         }
 
         // GET: Destino/Details/5
