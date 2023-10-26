@@ -13,7 +13,7 @@ namespace ProjetoAgencia.Models
         public DbSet<Estadia> Estadia { get; set; }
         public DbSet<Atracoes> Atracoes { get; set; }
         public DbSet<Destino> Destino { get; set; }
-        public DbSet<Transporte>Transporte { get; set; }
-        public DbSet<ProjetoAgencia.Models.Cadastro>? Cadastro { get; set; }
+        public DbSet<Transporte> Transporte { get; set; }
+        public DbSet<Cadastro> Cadastro { get; set; }
     }
 }
