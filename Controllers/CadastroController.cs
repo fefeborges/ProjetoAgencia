@@ -61,8 +61,8 @@ namespace ProjetoAgencia.Controllers
         // GET: Cadastro/Create
         public IActionResult Create()
         {
-            ViewData["DestinoId"] = new SelectList(_context.Destino, "Id", "Id");
-            ViewData["EstadiaId"] = new SelectList(_context.Estadia, "Id", "Id");
+            ViewData["DestinoId"] = new SelectList(_context.Destino, "Id", "NomeDestino");
+            ViewData["EstadiaId"] = new SelectList(_context.Estadia, "Id", "NomeEstadia");
             return View();
         }
 
