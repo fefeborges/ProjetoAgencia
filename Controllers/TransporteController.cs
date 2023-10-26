@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjetoAgencia.Models;
 
@@ -21,9 +16,9 @@ namespace ProjetoAgencia.Controllers
         // GET: Transporte
         public async Task<IActionResult> Index()
         {
-              return _context.Transporte != null ? 
-                          View(await _context.Transporte.ToListAsync()) :
-                          Problem("Entity set 'Contexto.Transporte'  is null.");
+            return _context.Transporte != null ?
+                        View(await _context.Transporte.ToListAsync()) :
+                        Problem("Entity set 'Contexto.Transporte'  is null.");
         }
 
         // GET: Transporte/Details/5
@@ -149,14 +144,14 @@ namespace ProjetoAgencia.Controllers
             {
                 _context.Transporte.Remove(transporte);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool TransporteExists(int id)
         {
-          return (_context.Transporte?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Transporte?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

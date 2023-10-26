@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjetoAgencia.Models;
 
@@ -21,9 +16,9 @@ namespace ProjetoAgencia.Controllers
         // GET: Atracoes
         public async Task<IActionResult> Index()
         {
-              return _context.Atracoes != null ? 
-                          View(await _context.Atracoes.ToListAsync()) :
-                          Problem("Entity set 'Contexto.Atracoes'  is null.");
+            return _context.Atracoes != null ?
+                        View(await _context.Atracoes.ToListAsync()) :
+                        Problem("Entity set 'Contexto.Atracoes'  is null.");
         }
 
         // GET: Atracoes/Details/5
@@ -149,14 +144,14 @@ namespace ProjetoAgencia.Controllers
             {
                 _context.Atracoes.Remove(atracoes);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool AtracoesExists(int id)
         {
-          return (_context.Atracoes?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Atracoes?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

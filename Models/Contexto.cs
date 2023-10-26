@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ProjetoAgencia.Models;
 
 namespace ProjetoAgencia.Models
 {

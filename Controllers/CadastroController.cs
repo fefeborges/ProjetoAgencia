@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProjetoAgencia.Models;
@@ -20,7 +16,7 @@ namespace ProjetoAgencia.Controllers
 
         // GET: Cadastro
         public async Task<IActionResult> Index(string pesquisa)
-        {   
+        {
             if (pesquisa == null)
             {
                 return _context.Cadastro != null ?
@@ -173,14 +169,14 @@ namespace ProjetoAgencia.Controllers
             {
                 _context.Cadastro.Remove(cadastro);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool CadastroExists(int id)
         {
-          return (_context.Cadastro?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Cadastro?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

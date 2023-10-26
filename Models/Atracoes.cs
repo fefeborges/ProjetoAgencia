@@ -7,7 +7,7 @@ namespace ProjetoAgencia.Models
     public class Atracoes
     {
         [Column("IdAtracoes")]
-        [Display( Name = "Código das Atrações")]
+        [Display(Name = "Código das Atrações")]
         public int Id { get; set; }
 
         [Column("NomeAtracoes")]

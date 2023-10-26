@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjetoAgencia.Models;
 
@@ -161,14 +156,14 @@ namespace ProjetoAgencia.Controllers
             {
                 _context.Destino.Remove(destino);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool DestinoExists(int id)
         {
-          return (_context.Destino?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Destino?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

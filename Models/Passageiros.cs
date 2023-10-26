@@ -12,6 +12,6 @@ namespace ProjetoAgencia.Models
 
         [Column("NomePassageiros")]
         [Display(Name = "Passageiros")]
-        public int NomePassageiros { get; set; } 
+        public int NomePassageiros { get; set; }
     }
 }

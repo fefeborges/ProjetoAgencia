@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjetoAgencia.Models;
 
@@ -21,9 +16,9 @@ namespace ProjetoAgencia.Controllers
         // GET: Estadia
         public async Task<IActionResult> Index()
         {
-              return _context.Estadia != null ? 
-                          View(await _context.Estadia.ToListAsync()) :
-                          Problem("Entity set 'Contexto.Estadia'  is null.");
+            return _context.Estadia != null ?
+                        View(await _context.Estadia.ToListAsync()) :
+                        Problem("Entity set 'Contexto.Estadia'  is null.");
         }
 
         // GET: Estadia/Details/5
@@ -149,14 +144,14 @@ namespace ProjetoAgencia.Controllers
             {
                 _context.Estadia.Remove(estadia);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool EstadiaExists(int id)
         {
-          return (_context.Estadia?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Estadia?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
