@@ -9,6 +9,9 @@ namespace ProjetoAgencia.Models
         {
 
         }
+        public DbSet<Passageiros> Passageiros { get; set; }
+        public DbSet<Estadia> Estadia { get; set; }
+        public DbSet<Atracoes> Atracoes { get; set; }
         public DbSet<Destino> Destino { get; set; }
     }
 }
