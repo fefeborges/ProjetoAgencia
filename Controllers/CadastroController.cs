@@ -51,11 +51,11 @@ namespace ProjetoAgencia.Controllers
         // GET: Cadastro/Create
         public IActionResult Create()
         {
-            ViewData["AtracoesId"] = new SelectList(_context.Atracoes, "Id", "Id");
-            ViewData["DestinoId"] = new SelectList(_context.Destino, "Id", "Id");
-            ViewData["EstadiaId"] = new SelectList(_context.Estadia, "Id", "Id");
-            ViewData["PassageirosId"] = new SelectList(_context.Passageiros, "Id", "Id");
-            ViewData["TransporteId"] = new SelectList(_context.Transporte, "Id", "Id");
+            ViewData["AtracoesId"] = new SelectList(_context.Atracoes, "Id", "NomeAtracoes");
+            ViewData["DestinoId"] = new SelectList(_context.Destino, "Id", "NomeDestino");
+            ViewData["EstadiaId"] = new SelectList(_context.Estadia, "Id", "NomeEstadia");
+            ViewData["PassageirosId"] = new SelectList(_context.Passageiros, "Id", "NomePassageiros");
+            ViewData["TransporteId"] = new SelectList(_context.Transporte, "Id", "NomeTransporte");
             return View();
         }
 
@@ -72,11 +72,11 @@ namespace ProjetoAgencia.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AtracoesId"] = new SelectList(_context.Atracoes, "Id", "Id", cadastro.AtracoesId);
-            ViewData["DestinoId"] = new SelectList(_context.Destino, "Id", "Id", cadastro.DestinoId);
-            ViewData["EstadiaId"] = new SelectList(_context.Estadia, "Id", "Id", cadastro.EstadiaId);
-            ViewData["PassageirosId"] = new SelectList(_context.Passageiros, "Id", "Id", cadastro.PassageirosId);
-            ViewData["TransporteId"] = new SelectList(_context.Transporte, "Id", "Id", cadastro.TransporteId);
+            ViewData["AtracoesId"] = new SelectList(_context.Atracoes, "Id", "NomeAtracoes", cadastro.AtracoesId);
+            ViewData["DestinoId"] = new SelectList(_context.Destino, "Id", "NomeDestino", cadastro.DestinoId);
+            ViewData["EstadiaId"] = new SelectList(_context.Estadia, "Id", "NomeEstadia", cadastro.EstadiaId);
+            ViewData["PassageirosId"] = new SelectList(_context.Passageiros, "Id", "NomePassageiros", cadastro.PassageirosId);
+            ViewData["TransporteId"] = new SelectList(_context.Transporte, "Id", "NomeTransporte", cadastro.TransporteId);
             return View(cadastro);
         }
 
@@ -93,11 +93,11 @@ namespace ProjetoAgencia.Controllers
             {
                 return NotFound();
             }
-            ViewData["AtracoesId"] = new SelectList(_context.Atracoes, "Id", "Id", cadastro.AtracoesId);
-            ViewData["DestinoId"] = new SelectList(_context.Destino, "Id", "Id", cadastro.DestinoId);
-            ViewData["EstadiaId"] = new SelectList(_context.Estadia, "Id", "Id", cadastro.EstadiaId);
-            ViewData["PassageirosId"] = new SelectList(_context.Passageiros, "Id", "Id", cadastro.PassageirosId);
-            ViewData["TransporteId"] = new SelectList(_context.Transporte, "Id", "Id", cadastro.TransporteId);
+            ViewData["AtracoesId"] = new SelectList(_context.Atracoes, "Id", "NomeAtracoes", cadastro.AtracoesId);
+            ViewData["DestinoId"] = new SelectList(_context.Destino, "Id", "NomeDestino", cadastro.DestinoId);
+            ViewData["EstadiaId"] = new SelectList(_context.Estadia, "Id", "NomeEstadia", cadastro.EstadiaId);
+            ViewData["PassageirosId"] = new SelectList(_context.Passageiros, "Id", "NomePassageiros", cadastro.PassageirosId);
+            ViewData["TransporteId"] = new SelectList(_context.Transporte, "Id", "NomeTransporte", cadastro.TransporteId);
             return View(cadastro);
         }
 
@@ -133,11 +133,11 @@ namespace ProjetoAgencia.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AtracoesId"] = new SelectList(_context.Atracoes, "Id", "Id", cadastro.AtracoesId);
-            ViewData["DestinoId"] = new SelectList(_context.Destino, "Id", "Id", cadastro.DestinoId);
-            ViewData["EstadiaId"] = new SelectList(_context.Estadia, "Id", "Id", cadastro.EstadiaId);
-            ViewData["PassageirosId"] = new SelectList(_context.Passageiros, "Id", "Id", cadastro.PassageirosId);
-            ViewData["TransporteId"] = new SelectList(_context.Transporte, "Id", "Id", cadastro.TransporteId);
+            ViewData["AtracoesId"] = new SelectList(_context.Atracoes, "Id", "NomeAtracoes", cadastro.AtracoesId);
+            ViewData["DestinoId"] = new SelectList(_context.Destino, "Id", "NomeDestino", cadastro.DestinoId);
+            ViewData["EstadiaId"] = new SelectList(_context.Estadia, "Id", "NomeEstadia", cadastro.EstadiaId);
+            ViewData["PassageirosId"] = new SelectList(_context.Passageiros, "Id", "NomePassageiros", cadastro.PassageirosId);
+            ViewData["TransporteId"] = new SelectList(_context.Transporte, "Id", "NomeTransporte", cadastro.TransporteId);
             return View(cadastro);
         }
 
