@@ -9,11 +9,11 @@ builder.Services.AddControllersWithViews();
 /*builder.Services.AddDbContext<Contexto> //Fernanda
     (options => options.UseSqlServer("Data Source=SB-1490653\\SQLSENAI;Initial Catalog = ProjetoAgencia;Integrated Security = True;TrustServerCertificate = True"));*/
 
-/*builder.Services.AddDbContext<Contexto> //Júlia
-    (options => options.UseSqlServer("Data Source=SB-1490628\\SQLSENAI;Initial Catalog = ProjetoAgencia;Integrated Security = True;TrustServerCertificate = True"));*/
+builder.Services.AddDbContext<Contexto> //Júlia
+    (options => options.UseSqlServer("Data Source=SB-1490628\\SQLSENAI;Initial Catalog = ProjetoAgencia;Integrated Security = True;TrustServerCertificate = True"));
 
-builder.Services.AddDbContext<Contexto> //Caroline
-    (options => options.UseSqlServer("Data Source=SB-1490624\\SQLSENAI;Initial Catalog = ProjetoAgencia;Integrated Security = True;TrustServerCertificate = True"));
+/*builder.Services.AddDbContext<Contexto> //Caroline
+    (options => options.UseSqlServer("Data Source=SB-1490624\\SQLSENAI;Initial Catalog = ProjetoAgencia;Integrated Security = True;TrustServerCertificate = True"));*/
 
 /*builder.Services.AddDbContext<Contexto> //Lívia
     (options => options.UseSqlServer("Data Source=SB-1490639\\SQLSENAI;Initial Catalog = ProjetoAgencia;Integrated Security = True;TrustServerCertificate = True"));*/
