@@ -16,3 +16,30 @@ html {
 body {
   margin-bottom: 60px;
 }
+.menu {
+    background-color: #1D91C3 !important;
+}
+.rodape {
+    background-color: #1D91C3 !important;
+    color: white !important;
+    padding-left:20px;
+}
+.navbar-brand {
+    margin-top: -41px;
+    margin-left: -26px;
+}
+img {
+    width: 100%;
+    height: 100%;
+    object-position:center;
+}
+.img-logo{
+    width: 92px;
+    height: 95px;
+}
+.navbar-nav{
+    margin-left: 250px;
+}
+.nav-item{
+    margin-right: 30px;
+}
