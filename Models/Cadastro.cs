@@ -34,8 +34,8 @@ namespace ProjetoAgencia.Models
         public int AtracoesId { get; set; }
         public Atracoes? Atracoes { get; set; }
 
-        [Column("NomeContato")]
+        [Column("Contato")]
         [Display(Name = "Contato")]
-        public int NomeContato { get; set; }
+        public string Contato { get; set; } = string.Empty;
     }
 }

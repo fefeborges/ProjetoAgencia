@@ -64,7 +64,7 @@ namespace ProjetoAgencia.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,NomePessoa,DestinoId,EstadiaId,PassageirosId,TransporteId,AtracoesId,NomeContato")] Cadastro cadastro)
+        public async Task<IActionResult> Create([Bind("Id,NomePessoa,DestinoId,EstadiaId,PassageirosId,TransporteId,AtracoesId,Contato")] Cadastro cadastro)
         {
             if (ModelState.IsValid)
             {
@@ -106,7 +106,7 @@ namespace ProjetoAgencia.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,NomePessoa,DestinoId,EstadiaId,PassageirosId,TransporteId,AtracoesId,NomeContato")] Cadastro cadastro)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,NomePessoa,DestinoId,EstadiaId,PassageirosId,TransporteId,AtracoesId,Contato")] Cadastro cadastro)
         {
             if (id != cadastro.Id)
             {

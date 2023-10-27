@@ -22,16 +22,7 @@
                 @Html.DisplayNameFor(model => model.Estadia.NomeEstadia)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Passageiros.NomePassageiros)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Transporte.NomeTransporte)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Atracoes.NomeAtracoes)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NomeContato)
+                @Html.DisplayNameFor(model => model.Contato)
             </th>
             <th></th>
         </tr>
@@ -49,16 +40,7 @@
                 @Html.DisplayFor(modelItem => item.Estadia.NomeEstadia)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Passageiros.NomePassageiros)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Transporte.NomeTransporte)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Atracoes.NomeAtracoes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NomeContato)
+                @Html.DisplayFor(modelItem => item.Contato)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
