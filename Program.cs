@@ -15,8 +15,8 @@ builder.Services.AddControllersWithViews();
 /*builder.Services.AddDbContext<Contexto> //Caroline
     (options => options.UseSqlServer("Data Source=SB-1490624\\SQLSENAI;Initial Catalog = ProjetoAgencia;Integrated Security = True;TrustServerCertificate = True"));*/
 
-builder.Services.AddDbContext<Contexto> //Lívia
-    (options => options.UseSqlServer("Data Source=SB-1490639\\SQLSENAI;Initial Catalog = ProjetoAgencia;Integrated Security = True;TrustServerCertificate = True"));
+/*builder.Services.AddDbContext<Contexto> //Lívia
+    (options => options.UseSqlServer("Data Source=SB-1490639\\SQLSENAI;Initial Catalog = ProjetoAgencia;Integrated Security = True;TrustServerCertificate = True"));*/
 
 var app = builder.Build();
 
