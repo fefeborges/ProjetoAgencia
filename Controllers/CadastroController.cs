@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProjetoAgencia.Models;
@@ -15,23 +19,10 @@ namespace ProjetoAgencia.Controllers
         }
 
         // GET: Cadastro
-        public async Task<IActionResult> Index(string pesquisa)
+        public async Task<IActionResult> Index()
         {
-            if (pesquisa == null)
-            {
-                return _context.Cadastro != null ?
-                            View(await _context.Cadastro.ToListAsync()) :
-                            Problem("Entity set 'Contexto.Cadastro'  is null.");
-            }
-            else
-            {
-                var cadastro =
-                    _context.Cadastro
-                    .Where(x => x.NomePessoa.Contains(pesquisa))
-                    .OrderBy(x => x.NomePessoa);
-
-                return View(cadastro);
-            }
+            var contexto = _context.Cadastro.Include(c => c.Atracoes).Include(c => c.Destino).Include(c => c.Estadia).Include(c => c.Passageiros).Include(c => c.Transporte);
+            return View(await contexto.ToListAsync());
         }
 
         // GET: Cadastro/Details/5
@@ -43,8 +34,11 @@ namespace ProjetoAgencia.Controllers
             }
 
             var cadastro = await _context.Cadastro
+                .Include(c => c.Atracoes)
                 .Include(c => c.Destino)
                 .Include(c => c.Estadia)
+                .Include(c => c.Passageiros)
+                .Include(c => c.Transporte)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (cadastro == null)
             {
@@ -57,8 +51,11 @@ namespace ProjetoAgencia.Controllers
         // GET: Cadastro/Create
         public IActionResult Create()
         {
-            ViewData["DestinoId"] = new SelectList(_context.Destino, "Id", "NomeDestino");
-            ViewData["EstadiaId"] = new SelectList(_context.Estadia, "Id", "NomeEstadia");
+            ViewData["AtracoesId"] = new SelectList(_context.Atracoes, "Id", "Id");
+            ViewData["DestinoId"] = new SelectList(_context.Destino, "Id", "Id");
+            ViewData["EstadiaId"] = new SelectList(_context.Estadia, "Id", "Id");
+            ViewData["PassageirosId"] = new SelectList(_context.Passageiros, "Id", "Id");
+            ViewData["TransporteId"] = new SelectList(_context.Transporte, "Id", "Id");
             return View();
         }
 
@@ -67,7 +64,7 @@ namespace ProjetoAgencia.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,NomePessoa,DestinoId,EstadiaId,NomeContato")] Cadastro cadastro)
+        public async Task<IActionResult> Create([Bind("Id,NomePessoa,DestinoId,EstadiaId,PassageirosId,TransporteId,AtracoesId,NomeContato")] Cadastro cadastro)
         {
             if (ModelState.IsValid)
             {
@@ -75,8 +72,11 @@ namespace ProjetoAgencia.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["AtracoesId"] = new SelectList(_context.Atracoes, "Id", "Id", cadastro.AtracoesId);
             ViewData["DestinoId"] = new SelectList(_context.Destino, "Id", "Id", cadastro.DestinoId);
             ViewData["EstadiaId"] = new SelectList(_context.Estadia, "Id", "Id", cadastro.EstadiaId);
+            ViewData["PassageirosId"] = new SelectList(_context.Passageiros, "Id", "Id", cadastro.PassageirosId);
+            ViewData["TransporteId"] = new SelectList(_context.Transporte, "Id", "Id", cadastro.TransporteId);
             return View(cadastro);
         }
 
@@ -93,8 +93,11 @@ namespace ProjetoAgencia.Controllers
             {
                 return NotFound();
             }
+            ViewData["AtracoesId"] = new SelectList(_context.Atracoes, "Id", "Id", cadastro.AtracoesId);
             ViewData["DestinoId"] = new SelectList(_context.Destino, "Id", "Id", cadastro.DestinoId);
             ViewData["EstadiaId"] = new SelectList(_context.Estadia, "Id", "Id", cadastro.EstadiaId);
+            ViewData["PassageirosId"] = new SelectList(_context.Passageiros, "Id", "Id", cadastro.PassageirosId);
+            ViewData["TransporteId"] = new SelectList(_context.Transporte, "Id", "Id", cadastro.TransporteId);
             return View(cadastro);
         }
 
@@ -103,7 +106,7 @@ namespace ProjetoAgencia.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,NomePessoa,DestinoId,EstadiaId,NomeContato")] Cadastro cadastro)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,NomePessoa,DestinoId,EstadiaId,PassageirosId,TransporteId,AtracoesId,NomeContato")] Cadastro cadastro)
         {
             if (id != cadastro.Id)
             {
@@ -130,8 +133,11 @@ namespace ProjetoAgencia.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["AtracoesId"] = new SelectList(_context.Atracoes, "Id", "Id", cadastro.AtracoesId);
             ViewData["DestinoId"] = new SelectList(_context.Destino, "Id", "Id", cadastro.DestinoId);
             ViewData["EstadiaId"] = new SelectList(_context.Estadia, "Id", "Id", cadastro.EstadiaId);
+            ViewData["PassageirosId"] = new SelectList(_context.Passageiros, "Id", "Id", cadastro.PassageirosId);
+            ViewData["TransporteId"] = new SelectList(_context.Transporte, "Id", "Id", cadastro.TransporteId);
             return View(cadastro);
         }
 
@@ -144,8 +150,11 @@ namespace ProjetoAgencia.Controllers
             }
 
             var cadastro = await _context.Cadastro
+                .Include(c => c.Atracoes)
                 .Include(c => c.Destino)
                 .Include(c => c.Estadia)
+                .Include(c => c.Passageiros)
+                .Include(c => c.Transporte)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (cadastro == null)
             {
@@ -169,14 +178,14 @@ namespace ProjetoAgencia.Controllers
             {
                 _context.Cadastro.Remove(cadastro);
             }
-
+            
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool CadastroExists(int id)
         {
-            return (_context.Cadastro?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Cadastro?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

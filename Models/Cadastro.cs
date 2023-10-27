@@ -22,6 +22,18 @@ namespace ProjetoAgencia.Models
         public int EstadiaId { get; set; }
         public Estadia? Estadia { get; set; }
 
+        [ForeignKey("PassageirosId")]
+        public int PassageirosId { get; set; }
+        public Passageiros? Passageiros { get; set; }
+
+        [ForeignKey("TransporteId")]
+        public int TransporteId { get; set; }
+        public Transporte? Transporte { get; set; }
+
+        [ForeignKey("AtracoesId")]
+        public int AtracoesId { get; set; }
+        public Atracoes? Atracoes { get; set; }
+
         [Column("NomeContato")]
         [Display(Name = "Contato")]
         public int NomeContato { get; set; }
