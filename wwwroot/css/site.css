@@ -56,3 +56,10 @@ img {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin: 0px 96px;
 }
+.a {
+    text-decoration: none;
+    color: #1D91C3 !important;
+}
+.btn-primary {
+    background: #1D91C3 !important;
+}

@@ -7,7 +7,7 @@
 <h1>Estadia</h1>
 
 <p>
-    <a asp-action="Create">Criar Novo</a>
+    <a class="a" asp-action="Create">Criar Novo</a>
 </p>
 <table class="table">
     <thead>
@@ -25,9 +25,9 @@
                 @Html.DisplayFor(modelItem => item.NomeEstadia)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
+                    <a class="a" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a class="a" asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                    <a class="a" asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
             </td>
         </tr>
 }
