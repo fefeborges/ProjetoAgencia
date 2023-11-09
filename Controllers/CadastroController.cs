@@ -19,10 +19,23 @@ namespace ProjetoAgencia.Controllers
         }
 
         // GET: Cadastro
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string pesquisa)
         {
-            var contexto = _context.Cadastro.Include(c => c.Atracoes).Include(c => c.Destino).Include(c => c.Estadia).Include(c => c.Passageiros).Include(c => c.Transporte);
-            return View(await contexto.ToListAsync());
+            if (pesquisa == null)
+            {
+                return _context.Cadastro != null ?
+                          View(await _context.Cadastro.ToListAsync()) :
+                          Problem("Entity set 'Contexto.Cadastro'  is null.");
+            }
+            else
+            {
+                var cadastro =
+                    _context.Cadastro
+                    .Where(x => x.NomePessoa.Contains(pesquisa))
+                    .OrderBy(x => x.NomePessoa);
+
+                return View(cadastro);
+            }
         }
 
         // GET: Cadastro/Details/5
