@@ -24,13 +24,17 @@ namespace ProjetoAgencia.Controllers
             if (pesquisa == null)
             {
                 return _context.Cadastro != null ?
-                          View(await _context.Cadastro.ToListAsync()) :
+                          View(await _context.Cadastro
+                          .Include(x => x.Destino)
+                          .Include(x => x.Estadia).ToListAsync()) :
                           Problem("Entity set 'Contexto.Cadastro'  is null.");
             }
             else
             {
                 var cadastro =
                     _context.Cadastro
+                    .Include(x=> x.Destino)
+                    .Include(x => x.Estadia)
                     .Where(x => x.NomePessoa.Contains(pesquisa))
                     .OrderBy(x => x.NomePessoa);
 
