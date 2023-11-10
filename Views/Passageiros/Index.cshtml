@@ -7,7 +7,7 @@
 <h1>Passageiros</h1>
 
 <p>
-    <a class="a" asp-action="Create">Criar novo</a>
+    <a class="btncriar" asp-action="Create">Criar Novo</a>
 </p>
 <table class="table">
     <thead>
@@ -24,11 +24,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.NomePassageiros)
             </td>
-            <td>
-                    <a class="a" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                    <a class="a" asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
-                    <a class="a" asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
-            </td>
+           <td>
+                <a class="a btnEditar" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a class="a btnDetalhes" asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                <a class="a btnDeletar" asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
+           </td>
         </tr>
 }
     </tbody>

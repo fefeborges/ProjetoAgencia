@@ -60,6 +60,39 @@ img {
     text-decoration: none;
     color: #1D91C3 !important;
 }
+.btncriar {
+    text-decoration: none;
+    color: #1D91C3 !important;
+    border: 1px solid #1D91C3 !important;
+    padding: 5px;
+    border-radius: 4px;
+    background-color: transparent;
+}
 .btn-primary {
     background: #1D91C3 !important;
+}
+.btnEditar {
+    text-decoration: none;
+    color: #1D91C3 !important;
+}
+.btnEditar:hover {
+    text-decoration: underline;
+    color: #fae045 !important;
+}
+.btnDetalhes {
+    text-decoration: none;
+    color: #1D91C3 !important;
+}
+.btnDetalhes:hover {
+    text-decoration: underline;
+    color: #66b041 !important;
+}
+.btnDeletar {
+    text-decoration: none;
+    color: #1D91C3 !important;
+}
+
+.btnDeletar:hover {
+    text-decoration: underline;
+    color: red !important;
 }
